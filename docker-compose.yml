@@ -1,0 +1,7 @@
+version: '0.0.1'
+services:
+  build:
+    context: .
+    dockerfile: Dockerfile.dev
+  volumes:
+    - .:/usr/app

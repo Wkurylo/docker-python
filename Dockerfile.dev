@@ -1,0 +1,21 @@
+FROM python:3.10.2
+LABEL Maintainer="Kurylo.Wojtek@deme-group.com"
+
+WORKDIR /usr/app
+
+COPY requirements.txt .
+
+RUN pip install --upgrade pip
+RUN pip install -r requirements.txt
+
+#this is backup. In start we are referencing files in folder
+COPY . .
+
+
+CMD ["python", "./DemeReadComputePush.py"]
+
+#BUILD
+# cd to project directory
+# docker build -f Dockerfile.dev -t piweb:0.0.1 .
+# docker images 
+# docker run piweb:0.0.1  OR docker run -v ${pwd}:/usr/app piweb:0.0.1
